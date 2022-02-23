@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@nx-yarn-pnp-example/angular-lib": ["packages/angular-lib/src/index.ts"],
+      "@nx-yarn-pnp-example/node-lib": ["packages/node-lib/src/index.ts"],
+      "@nx-yarn-pnp-example/react-lib": ["packages/react-lib/src/index.ts"],
+      "@nx-yarn-pnp-example/ts-lib": ["packages/ts-lib/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

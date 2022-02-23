@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "packages/angular-lib",
+  "sourceRoot": "packages/angular-lib/src",
+  "prefix": "nx-yarn-pnp-example",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/angular-lib"],
+      "options": {
+        "jestConfig": "packages/angular-lib/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/angular-lib/src/**/*.ts",
+          "packages/angular-lib/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
