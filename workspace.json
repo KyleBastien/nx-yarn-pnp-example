@@ -1,4 +1,8 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "angular-app": "packages/angular-app",
+    "angular-app-e2e": "packages/angular-app-e2e",
+    "angular-lib": "packages/angular-lib"
+  }
 }
