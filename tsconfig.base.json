@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-yarn-pnp-example/angular-lib": ["packages/angular-lib/src/index.ts"]
+      "@nx-yarn-pnp-example/angular-lib": ["packages/angular-lib/src/index.ts"],
+      "@nx-yarn-pnp-example/react-lib": ["packages/react-lib/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -3,6 +3,9 @@
   "projects": {
     "angular-app": "packages/angular-app",
     "angular-app-e2e": "packages/angular-app-e2e",
-    "angular-lib": "packages/angular-lib"
+    "angular-lib": "packages/angular-lib",
+    "react-app": "packages/react-app",
+    "react-app-e2e": "packages/react-app-e2e",
+    "react-lib": "packages/react-lib"
   }
 }
