@@ -1,12 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import { AngularLibModule } from '@nx-yarn-pnp-example/angular-lib';
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AngularLibModule],
       declarations: [AppComponent, NxWelcomeComponent],
     }).compileComponents();
   });
