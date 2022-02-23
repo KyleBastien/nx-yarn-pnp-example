@@ -8,6 +8,7 @@
     "node-lib": "packages/node-lib",
     "react-app": "packages/react-app",
     "react-app-e2e": "packages/react-app-e2e",
-    "react-lib": "packages/react-lib"
+    "react-lib": "packages/react-lib",
+    "ts-lib": "packages/ts-lib"
   }
 }
