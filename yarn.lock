@@ -11366,6 +11366,13 @@ __metadata:
     tslib: ^2.0.0
     typescript: ~4.5.2
     zone.js: ~0.11.4
+  dependenciesMeta:
+    "@parcel/watcher":
+      unplugged: false
+    node-addon-api:
+      unplugged: false
+    node-gyp:
+      unplugged: false
   languageName: unknown
   linkType: soft
 
