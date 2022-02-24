@@ -2820,6 +2820,11 @@ __metadata:
 "@nx-yarn-pnp-example/ts-lib@workspace:packages/ts-lib":
   version: 0.0.0-use.local
   resolution: "@nx-yarn-pnp-example/ts-lib@workspace:packages/ts-lib"
+  dependencies:
+    "@nrwl/eslint-plugin-nx": 13.8.3
+    "@nrwl/jest": 13.8.3
+    "@typescript-eslint/eslint-plugin": ~5.10.0
+    ts-jest: 27.0.5
   languageName: unknown
   linkType: soft
 
