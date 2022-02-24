@@ -19,7 +19,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - run: yarn install
       - run: yarn run nx affected --target=lint --parallel=2
       - run: yarn run nx affected --target=test --parallel=2
       - run: yarn run nx affected --target=e2e --parallel=1
@@ -37,7 +36,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - run: yarn install
       - run: yarn run nx affected --target=lint --parallel=2
       - run: yarn run nx affected --target=test --parallel=2
       - run: yarn run nx affected --target=e2e --parallel=1
