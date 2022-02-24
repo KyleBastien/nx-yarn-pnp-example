@@ -1,94 +1,28 @@
+# Nx with Yarn PnP Example
 
+This project is designed to show how to use Nx with Yarn PnP with Zero Installs.
 
-# NxYarnPnpExample
+This is currently not trivial and has some caveats because Nx takes a dependency on node_modules existing in a variety of scenarios.
 
-This project was generated using [Nx](https://nx.dev).
+I will do my best to update this example as new versions of Yarn and Nx are released.
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+Here are some things to consider, if you're going to embark on using Yarn PnP with Nx:
 
-🔎 **Smart, Fast and Extensible Build System**
+1. Nx Daemon doesn't work. I'm not currently sure why this is the case, but I haven't found any way to get the Nx daemon to work. The workaround for this is to add `"useDaemonProcess": false` to your `nx.json` file.
 
-## Adding capabilities to your workspace
+2. You need to unplug `tslib` if you are using the `@nrwl/js` executor (e.g., the `ts-lib` package in this repo). This is because Nx directly calls into [TS via the TS APIs](https://github.com/nrwl/nx/blob/5e3f1d47bfa725e19a6d06fe7c049dd41c41a077/packages/workspace/src/utilities/typescript/compilation.ts#L157), which means Yarn "PnP-ifyed" TS doesn't get invoked, and TS is unable to find tslib, because it's not in node_modules.
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+3. (Only if you want Zero Installs to work) You need to check in your `.yarn/unplugged` folder. Otherwise dependencies like `swc` that Yarn uses won't be able to be found, because the binaries won't have installed. `unplugged` is a operating system specific folder though, so this has the big disadvantage of making it basically impossible to have a repo be cross platform where some people work on Windows and some work on Linux (for example). If you're okay living without Zero Installs, then you can continue to `.gitignore` the `.yarn/unplugged` folder.
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+4. Upgrading Nx requires mare steps. Nx really wants the `node_modules` folder to exist during a `migrate latest` command. The way to do this is to do the following:
 
-Below are our core plugins:
-
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@nx-yarn-pnp-example/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+- Remove pnpMode: loose from .yarnrc.yml
+- Add nodeLinker: node-modules to .yarnrc.yml
+- Run yarn to install all packages in node_modules
+- Run node ./node_modules/@nrwl/tao/index.js migrate latest
+- Run yarn again to install any changed that the migrate script made to package.json
+- Run node ./node_modules/@nrwl/tao/index.js migrate --run-migrations
+- Remove the migrations.json file
+- Remove nodeLinker: node-modules from .yarnrc.yml
+- Add pnpMode: loose to .yarnrc.yml
+- Run yarn again to remove the node_modules directory, and add back the .pnp.cjs file
