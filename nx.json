@@ -4,6 +4,12 @@
   "affected": {
     "defaultBase": "main"
   },
+  "implicitDependencies": {
+    ".github/**/*.yml": "*",
+    ".eslintrc.json": "*",
+    "package.json": "*",
+    "yarn.lock": "*"
+  },
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
