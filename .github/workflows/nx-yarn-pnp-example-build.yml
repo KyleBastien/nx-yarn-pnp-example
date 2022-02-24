@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - run: yarn run nx affected --target=lint --parallel=2
+      - run: yarn nx affected --target=lint --parallel=2
 
   main-test:
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - run: yarn run nx affected --target=test --parallel=2
+      - run: yarn nx affected --target=test --parallel=2
 
   main-e2e:
     runs-on: ubuntu-latest
@@ -50,7 +50,7 @@ jobs:
         with:
           node-version: '14'
       - run: yarn cypress install
-      - run: yarn run nx affected --target=e2e --parallel=1
+      - run: yarn nx affected --target=e2e --parallel=1
 
   main-build:
     runs-on: ubuntu-latest
@@ -65,7 +65,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - run: yarn run nx affected --target=build --parallel=3
+      - run: yarn nx affected --target=build --parallel=3
 
   pr-lint:
     runs-on: ubuntu-latest
@@ -80,7 +80,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - run: yarn run nx affected --target=lint --parallel=2
+      - run: yarn nx affected --target=lint --parallel=2
 
   pr-test:
     runs-on: ubuntu-latest
@@ -95,7 +95,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - run: yarn run nx affected --target=test --parallel=2
+      - run: yarn nx affected --target=test --parallel=2
 
   pr-e2e:
     runs-on: ubuntu-latest
@@ -111,7 +111,7 @@ jobs:
         with:
           node-version: '14'
       - run: yarn cypress install
-      - run: yarn run nx affected --target=e2e --parallel=1
+      - run: yarn nx affected --target=e2e --parallel=1
 
   pr-build:
     runs-on: ubuntu-latest
@@ -126,4 +126,4 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - run: yarn run nx affected --target=build --parallel=3
+      - run: yarn nx affected --target=build --parallel=3
