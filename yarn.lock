@@ -2823,6 +2823,7 @@ __metadata:
   dependencies:
     "@nrwl/eslint-plugin-nx": 13.8.3
     "@nrwl/jest": 13.8.3
+    "@types/jest": 27.0.2
     "@typescript-eslint/eslint-plugin": ~5.10.0
     ts-jest: 27.0.5
   languageName: unknown

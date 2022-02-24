@@ -10782,6 +10782,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nx-yarn-pnp-example/ts-lib", "workspace:packages/ts-lib"],\
             ["@nrwl/eslint-plugin-nx", "virtual:5ce70e11fea6b52ade0644d7fd1ddde62a50bbe36cf5aecc3c3ada50651f7be253deda6f3b26c71bef233ef64394ab120dea5ce03631b0d847fb7523489524cc#npm:13.8.3"],\
             ["@nrwl/jest", "npm:13.8.3"],\
+            ["@types/jest", "npm:27.0.2"],\
             ["@typescript-eslint/eslint-plugin", "virtual:5ce70e11fea6b52ade0644d7fd1ddde62a50bbe36cf5aecc3c3ada50651f7be253deda6f3b26c71bef233ef64394ab120dea5ce03631b0d847fb7523489524cc#npm:5.10.2"],\
             ["ts-jest", "virtual:5ce70e11fea6b52ade0644d7fd1ddde62a50bbe36cf5aecc3c3ada50651f7be253deda6f3b26c71bef233ef64394ab120dea5ce03631b0d847fb7523489524cc#npm:27.0.5"]\
           ],\
@@ -26194,7 +26195,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/core", null],\
             ["@types/babel-jest", null],\
             ["@types/babel__core", null],\
-            ["@types/jest", null],\
+            ["@types/jest", "npm:27.0.2"],\
             ["@types/typescript", null],\
             ["babel-jest", null],\
             ["bs-logger", "npm:0.2.6"],\
