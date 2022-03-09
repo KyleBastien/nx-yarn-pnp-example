@@ -49,3 +49,40 @@ packageExtensions:
 ```
 
 7. Cypress won't work without an explicit install step. This is because Cypress is running a binary, and that binary is usually installed via a `post-install` script. Easy way to solve this is to add a `yarn cypress install` step in your CI, before trying to run e2e tests.
+
+8. If your builds are hanging you might need to add a custom Webpack config to remove the `ForkTsCheckerWebpackPlugin` which isn't necessary because the webpack config that Nx has already ships with ts-loader.
+
+You can change your Webpack config using something like:
+
+```js
+module.exports = (config) => {
+  /**
+   * For some reason @nrwl/node:webpack config includes ts-loader for ts files and also
+   * fork-ts-checker-webpack-plugin for ts files. This is redundant and is causing the build to hang
+   * therefore removing this plugin.
+   */
+  config.plugins = config.plugins.filter(
+    (plugin) => plugin.constructor.name !== 'ForkTsCheckerWebpackPlugin'
+  );
+
+  return config;
+};
+```
+
+Add updating that packages `project.json` file to include a line like this in the options:
+
+```json
+{
+  ...
+  "targets": {
+    ...,
+    "build": {
+      ...,
+      "options": {
+        ...,
+        "webpackConfig": "packages/<package-name>/webpack.config.js"
+      }
+    }
+  }
+}
+```
