@@ -1,0 +1,40 @@
+{
+  // code style and linter settings
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  // Auto-format and lint
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  // Editor optimizations
+  "files.exclude": {
+    "**/*.hot-update.*": true,
+    "**/.cache-loader": true,
+    "**/coverage": false,
+    "**/node_modules": false,
+    "**/logs": false,
+    "**/*.log": true
+  },
+  "search.exclude": {
+    "**/build": true,
+    "**/coverage": true,
+    "**/node_modules": true,
+    "**/logs": true,
+    "**/*.log": true,
+    ".yarn": true,
+    ".yarn/*": true,
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  // codedbase specific prettier and typescript settings
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+  "eslint.nodePath": ".yarn/sdks",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

@@ -4,6 +4,12 @@
   "affected": {
     "defaultBase": "main"
   },
+  "implicitDependencies": {
+    ".github/**/*.yml": "*",
+    ".eslintrc.json": "*",
+    "package.json": "*",
+    "yarn.lock": "*"
+  },
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
@@ -11,7 +17,8 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "useDaemonProcess": false
       }
     }
   },

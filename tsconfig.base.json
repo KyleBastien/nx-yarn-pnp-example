@@ -18,7 +18,8 @@
       "@nx-yarn-pnp-example/angular-lib": ["packages/angular-lib/src/index.ts"],
       "@nx-yarn-pnp-example/node-lib": ["packages/node-lib/src/index.ts"],
       "@nx-yarn-pnp-example/react-lib": ["packages/react-lib/src/index.ts"],
-      "@nx-yarn-pnp-example/ts-lib": ["packages/ts-lib/src/index.ts"]
+      "@nx-yarn-pnp-example/ts-lib": ["packages/ts-lib/src/index.ts"],
+      "tslib": [".yarn/unplugged/tslib-npm-2.3.1-0e21e18015/node_modules/tslib"]
     }
   },
   "exclude": ["node_modules", "tmp"]

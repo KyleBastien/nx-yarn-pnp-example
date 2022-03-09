@@ -4,13 +4,14 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:build",
+      "executor": "@nrwl/node:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/node-app",
         "main": "packages/node-app/src/main.ts",
         "tsConfig": "packages/node-app/tsconfig.app.json",
-        "assets": ["packages/node-app/src/assets"]
+        "assets": ["packages/node-app/src/assets"],
+        "webpackConfig": "packages/node-app/webpack.config.js"
       },
       "configurations": {
         "production": {
@@ -27,7 +28,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/node:execute",
+      "executor": "@nrwl/node:node",
       "options": {
         "buildTarget": "node-app:build"
       }
