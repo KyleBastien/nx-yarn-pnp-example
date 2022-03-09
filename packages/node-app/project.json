@@ -10,7 +10,8 @@
         "outputPath": "dist/packages/node-app",
         "main": "packages/node-app/src/main.ts",
         "tsConfig": "packages/node-app/tsconfig.app.json",
-        "assets": ["packages/node-app/src/assets"]
+        "assets": ["packages/node-app/src/assets"],
+        "webpackConfig": "packages/node-app/webpack.config.js"
       },
       "configurations": {
         "production": {
