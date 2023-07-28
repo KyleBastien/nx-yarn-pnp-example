@@ -43,6 +43,7 @@
     "@nx/react": "16.5.5",
     "@nx/web": "16.5.5",
     "@nx/workspace": "16.5.5",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
     "@schematics/angular": "16.1.6",
     "@testing-library/react": "14.0.0",
     "@types/jest": "29.5.0",
