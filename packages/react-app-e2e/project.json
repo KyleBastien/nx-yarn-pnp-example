@@ -7,8 +7,9 @@
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "packages/react-app-e2e/cypress.json",
-        "devServerTarget": "react-app:serve"
+        "cypressConfig": "packages/react-app-e2e/cypress.config.ts",
+        "devServerTarget": "react-app:serve",
+        "testingType": "e2e"
       },
       "configurations": {
         "production": {
