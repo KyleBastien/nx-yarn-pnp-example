@@ -1,16 +1,19 @@
 {
-  "root": "packages/node-app",
+  "name": "node-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/node-app/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:build",
+      "executor": "@nrwl/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/node-app",
         "main": "packages/node-app/src/main.ts",
         "tsConfig": "packages/node-app/tsconfig.app.json",
-        "assets": ["packages/node-app/src/assets"]
+        "assets": ["packages/node-app/src/assets"],
+        "compiler": "tsc",
+        "target": "node"
       },
       "configurations": {
         "production": {
@@ -27,23 +30,23 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/node:execute",
+      "executor": "@nx/js:node",
       "options": {
         "buildTarget": "node-app:build"
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["packages/node-app/**/*.ts"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/node-app"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/node-app"],
       "options": {
-        "jestConfig": "packages/node-app/jest.config.js",
+        "jestConfig": "packages/node-app/jest.config.ts",
         "passWithNoTests": true
       }
     }

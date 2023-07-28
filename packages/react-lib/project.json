@@ -1,21 +1,22 @@
 {
-  "root": "packages/react-lib",
+  "name": "react-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/react-lib/src",
   "projectType": "library",
   "tags": [],
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["packages/react-lib/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/react-lib"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/react-lib"],
       "options": {
-        "jestConfig": "packages/react-lib/jest.config.js",
+        "jestConfig": "packages/react-lib/jest.config.ts",
         "passWithNoTests": true
       }
     }

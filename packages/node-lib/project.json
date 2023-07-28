@@ -1,20 +1,21 @@
 {
-  "root": "packages/node-lib",
+  "name": "node-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/node-lib/src",
   "projectType": "library",
   "targets": {
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["packages/node-lib/**/*.ts"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/node-lib"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/node-lib"],
       "options": {
-        "jestConfig": "packages/node-lib/jest.config.js",
+        "jestConfig": "packages/node-lib/jest.config.ts",
         "passWithNoTests": true
       }
     }

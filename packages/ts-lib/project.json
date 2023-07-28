@@ -1,10 +1,11 @@
 {
-  "root": "packages/ts-lib",
+  "name": "ts-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/ts-lib/src",
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/ts-lib",
@@ -14,17 +15,17 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["packages/ts-lib/**/*.ts"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/ts-lib"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/ts-lib"],
       "options": {
-        "jestConfig": "packages/ts-lib/jest.config.js",
+        "jestConfig": "packages/ts-lib/jest.config.ts",
         "passWithNoTests": true
       }
     }
