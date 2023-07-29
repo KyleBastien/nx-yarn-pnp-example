@@ -19,11 +19,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '18'
-      - run: npm install
-      - run: npx nx affected --target=lint --parallel=2
-      - run: npx nx affected --target=test --parallel=2
-      - run: npx nx affected --target=e2e --parallel=1
-      - run: npx nx affected --target=build --parallel=3
+      - run: yarn install
+      - run: yarn nx affected --target=lint --parallel=2
+      - run: yarn nx affected --target=test --parallel=2
+      - run: yarn nx affected --target=e2e --parallel=1
+      - run: yarn nx affected --target=build --parallel=3
   pr:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
@@ -37,8 +37,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '18'
-      - run: npm install
-      - run: npx nx affected --target=lint --parallel=2
-      - run: npx nx affected --target=test --parallel=2
-      - run: npx nx affected --target=e2e --parallel=1
-      - run: npx nx affected --target=build --parallel=3
+      - run: yarn install
+      - run: yarn nx affected --target=lint --parallel=2
+      - run: yarn nx affected --target=test --parallel=2
+      - run: yarn nx affected --target=e2e --parallel=1
+      - run: yarn nx affected --target=build --parallel=3
