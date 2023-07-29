@@ -2,7 +2,6 @@
   "name": "nx-yarn-pnp-example",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
   "private": true,
   "dependencies": {
     "@angular/animations": "16.1.7",
@@ -32,11 +31,11 @@
     "@angular/cli": "~16.1.0",
     "@angular/compiler-cli": "16.1.7",
     "@angular/language-service": "16.1.7",
-    "@nx/js": "16.6.0-beta.8",
     "@nx/angular": "16.6.0-beta.8",
     "@nx/cypress": "16.6.0-beta.8",
     "@nx/eslint-plugin": "16.6.0-beta.8",
     "@nx/jest": "16.6.0-beta.8",
+    "@nx/js": "16.6.0-beta.8",
     "@nx/linter": "16.6.0-beta.8",
     "@nx/node": "16.6.0-beta.8",
     "@nx/react": "16.6.0-beta.8",
@@ -72,6 +71,6 @@
   },
   "workspaces": [
     "packages/**"
-  ]
+  ],
+  "packageManager": "yarn@3.6.1"
 }
-
